@@ -87,7 +87,7 @@ class ObjParser(parser.Parser):
     def parse_mtllib(self, args):
         [mtllib] = args
         materials = material.MaterialParser(mtllib).materials
-        for material_name, material_object in materials.items():
+        for material_name, material_object in list(materials.items()):
             self.wavefront.materials[material_name] = material_object
 
     def parse_usemtl(self, args):
